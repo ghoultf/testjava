@@ -38,7 +38,7 @@ public class RSA {
         PrivateKey privateKey2 = generatePrivateKeyFromStr(privateKeyStr);
 
         // 使用publicKey2加密，privateKey2解密
-        String pwd = "123456";
+        String pwd = "1234567";
         System.out.println("source " + pwd);
         Cipher cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.ENCRYPT_MODE, publicKey2);
@@ -47,6 +47,8 @@ public class RSA {
 
         cipher.init(Cipher.DECRYPT_MODE, privateKey2);
         byte[] decryptedBytes = cipher.doFinal(encryptedBytes);
+        // 123456  C6R48MZeXlWO2DdzO4CgKeOQIFOnI97nFBqu3fwlZMXpYtADDlppTa7IhZkFLUQ6WTYnT1jDgpOjOV10KmyA9g==
+        // 1234567 DEPFHpLjT0vAbQojtDOeVSZsd+5LQ3QCNMU9Bw5pGd+4Up/a6fQ0571vOKd+gK6ZDJ4qlnUGgLUeWi+Y2CNmUA==
         System.out.println("decrypted string " + new String(decryptedBytes));
     }
 
